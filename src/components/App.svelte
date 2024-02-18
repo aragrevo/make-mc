@@ -1,5 +1,4 @@
 <script>
-  import {fade} from 'svelte/transition';
   import {APP_STATUS, appStatus} from '../store.ts';
   import Introduction from '@components/Introduction.svelte';
   import StepLoading from '@components/StepLoading.svelte';
@@ -10,15 +9,15 @@
 {#if $appStatus === APP_STATUS.INIT}
   <Introduction />
 {:else if $appStatus === APP_STATUS.LOADING}
-  <div transition:fade>
+  <div>
     <StepLoading />
   </div>
 {:else if $appStatus === APP_STATUS.BUILD}
-  <div transition:fade>
+  <div>
     <StepBuilder />
   </div>
 {:else if $appStatus === APP_STATUS.DONE}
-  <div transition:fade>
+  <div>
     <StepDone />
   </div>
 {/if}

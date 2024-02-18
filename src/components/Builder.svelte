@@ -33,16 +33,25 @@
         items = [...sauces];
         break;
       case STEPS.SALAD:
+        if ($burger.salad.length === 0) {
+          setNextStep(STEPS.ADDON);
+          return;
+        }
         items = [...salads];
         break;
       case STEPS.ADDON:
+        if ($burger.addOns.length === 0) {
+          setNextStep(STEPS.FINISHER);
+          return;
+        }
         items = [...addons];
         break;
       case STEPS.FINISHER:
         items = [...meats];
         break;
       case STEPS.DONE:
-        items = [...itemsAdded];
+        items = [];
+        itemsAdded = [];
         setAppStatusDone();
         break;
 

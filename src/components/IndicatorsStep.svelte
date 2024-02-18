@@ -7,13 +7,13 @@
 </script>
 
 <ol class="flex items-center w-full justify-between">
-  <Indicator active={$step === STEPS.INITIALIZER}>
+  <Indicator active={$step >= STEPS.INITIALIZER} fill={$step >= STEPS.SEASONING}>
     <Bread />
   </Indicator>
-  <Indicator active={$step === STEPS.SEASONING}>
+  <Indicator active={$step >= STEPS.SEASONING} fill={$step >= STEPS.FINISHER}>
     <Sauce />
   </Indicator>
-  <Indicator active={$step === STEPS.FINISHER}>
+  <Indicator active={$step >= STEPS.FINISHER} fill={$step >= STEPS.FINISHER}>
     <Meat />
   </Indicator>
 </ol>

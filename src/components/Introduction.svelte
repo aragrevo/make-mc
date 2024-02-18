@@ -8,11 +8,14 @@
 </script>
 
 <section class="">
-  <p class="instructions mb-6 p-6 text-2xl">
+  <p class="instructions mb-6 p-6 text-xl">
     Press the start button and get your
-    <strong>MC</strong> test. Choose the right ingredients. Ready? Let's go!
+    <strong>MC</strong> quiz. Choose the right ingredients. Ready? Let's go!
   </p>
-  <Button on:click={handleClick} />
+  <Button on:click={handleClick}>
+    Start
+    <span>&rarr;</span>
+  </Button>
 </section>
 
 <style>

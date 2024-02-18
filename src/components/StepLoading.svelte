@@ -1,24 +1,6 @@
 <script lang="ts">
-  import {setBurger, type IBurger, IBread, ISalad, IAddOn, ISauces, IMeat} from 'src/store';
-
-  const burgers: IBurger[] = [
-    {
-      name: 'CBO',
-      bread: IBread.TexMex,
-      sauces: [ISauces['Molho CBO']],
-      salad: [ISalad['Cebola Frita'], ISalad.Alface],
-      addOns: [IAddOn.Bacon, IAddOn.Cheddar],
-      meat: [IMeat.Myshtic],
-    },
-    {
-      name: 'Tasty',
-      bread: IBread.TexMex,
-      sauces: [ISauces['Molho Tasty']],
-      salad: [ISalad['Cebola Fresca'], ISalad.Alface, ISalad.Tomate],
-      meat: [IMeat.Royal],
-      addOns: [IAddOn.Elemental],
-    },
-  ];
+  import {setBurger} from 'src/store';
+  import {burgers} from 'src/data/burgers';
 
   function randomNumber(max: number) {
     return Math.floor(Math.random() * max);
@@ -27,7 +9,7 @@
   setTimeout(() => {
     const idx = randomNumber(burgers.length);
     setBurger(burgers[idx]);
-  }, 500);
+  }, 750);
 </script>
 
 <div class="flex justify-center items-center flex-col gap-y-8">

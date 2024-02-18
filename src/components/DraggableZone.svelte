@@ -13,7 +13,7 @@
   }
 </script>
 
-<article class="m-4">
+<article>
   <ul class="flex flex-wrap gap-3">
     {#each items as item, itemIndex (item)}
       <div animate:flip class="inline">

@@ -42,7 +42,7 @@
   class:snake={fail}
 >
   <div class="flex flex-col min-h-[20vh] items-start w-full">
-    <ul class="flex flex-wrap gap-2">
+    <ul class="flex flex-wrap gap-2 mb-2">
       {#each itemsAdded as item, itemIndex (item)}
         <div animate:flip class="inline">
           <li

@@ -1,8 +1,7 @@
-<li class="link-card text-center mx-auto">
+<li class="link-card text-center mx-auto w-32">
   <button on:click>
     <h2>
-      Start
-      <span>&rarr;</span>
+      <slot />
     </h2>
   </button>
 </li>
@@ -11,7 +10,6 @@
   .link-card {
     list-style: none;
     aspect-ratio: 1 / 1;
-    width: fit-content;
     display: flex;
     padding: 1px;
     background-color: #23262d;
