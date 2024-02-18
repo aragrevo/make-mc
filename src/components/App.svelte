@@ -1,23 +1,24 @@
 <script>
+  import {fade} from 'svelte/transition';
   import {APP_STATUS, appStatus} from '../store.ts';
+  import Introduction from '@components/Introduction.svelte';
+  import StepLoading from '@components/StepLoading.svelte';
+  import StepBuilder from '@components/StepBuilder.svelte';
+  import StepDone from './StepDone.svelte';
 </script>
 
 {#if $appStatus === APP_STATUS.INIT}
-  <p class="instructions">
-    Dá al botón iniciar y prepara tú
-    <strong>MC</strong>. Selecciona los ingredientes correctos.
-  </p>
+  <Introduction />
+{:else if $appStatus === APP_STATUS.LOADING}
+  <div transition:fade>
+    <StepLoading />
+  </div>
+{:else if $appStatus === APP_STATUS.BUILD}
+  <div transition:fade>
+    <StepBuilder />
+  </div>
+{:else if $appStatus === APP_STATUS.DONE}
+  <div transition:fade>
+    <StepDone />
+  </div>
 {/if}
-
-<style>
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-</style>
