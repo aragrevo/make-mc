@@ -95,13 +95,8 @@
     if (!ev.detail) {
       return;
     }
-    resetBox(ev.detail.target);
-    drop(ev.detail.item);
-  }
 
-  function resetBox(target) {
-    target.style.position = 'initial';
-    target.classList.remove('border-dashed');
+    drop(ev.detail.item);
   }
 
   async function drop(value, box) {
@@ -144,5 +139,5 @@
   }
 </script>
 
-<DraggableZone {items} {sectionName} on:dropMe={move} />
+<DraggableZone {items} {sectionName} on:dropMe={move} showBudget={$step === STEPS.FINISHER} />
 <DropZone {itemsAdded} handleDrop={drop} {fail} />

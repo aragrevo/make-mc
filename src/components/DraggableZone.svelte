@@ -1,9 +1,11 @@
 <script>
   import {createEventDispatcher} from 'svelte';
+  import {ColorMapper} from 'src/utils/color-mapper';
   import {flip} from 'svelte/animate';
   const dispatch = createEventDispatcher();
   export let items = [];
   export let sectionName = '';
+  export let showBudget = false;
 
   function dragStart(ev, item, itemIndex) {
     ev.currentTarget.classList.add('border-dashed');
@@ -19,6 +21,7 @@
     const touchLocation = ev.targetTouches[0];
     const box = ev.currentTarget;
     box.classList.add('border-dashed');
+    box.classList.add('bg-gray-900');
     box.style.position = 'absolute';
     box.style.zIndex = '2';
     box.style.left = touchLocation.pageX + 'px';
@@ -33,6 +36,9 @@
     const dropZone = document.querySelector('.dropzone');
     const {bottom, left, right, top} = dropZone.getBoundingClientRect();
 
+    box.style.position = 'initial';
+    ev.currentTarget.classList.remove('border-dashed');
+    ev.currentTarget.classList.remove('bg-gray-900');
     if (left <= x && x <= right && top <= y && y <= bottom) {
       dispatch('dropMe', {
         item,
@@ -41,8 +47,7 @@
       });
       return;
     }
-    box.style.position = 'initial';
-    ev.currentTarget.classList.remove('border-dashed');
+
     dispatch('dropMe', null);
   }
 </script>
@@ -58,9 +63,18 @@
         on:dragend={event => dragEnd(event, item, itemIndex)}
         on:touchmove={event => touchMove(event)}
         on:touchend={event => touchEnd(event, item, itemIndex)}
-        class=" flex-initial cursor-pointer inline-block max-w-xs p-4 rounded-lg shadow text-gray-400 divide-gray-700 bg-gray-800 border border-gray-700 text-sm leading-none hover:bg-gray-900"
+        class="transition-all flex-initial cursor-pointer inline-block max-w-xs rounded-lg shadow text-gray-400 bg-gray-800 divide-gray-700 border border-gray-700 text-sm leading-none active:bg-gray-900 md:hover:bg-gray-900"
       >
-        <span class="text-sm font-normal leading-none">{item}</span>
+        <div class="relative p-4">
+          <span class="text-sm font-normal leading-none">{item}</span>
+          {#if showBudget}
+            <span
+              class="{ColorMapper[
+                item
+              ]} absolute inline-flex items-center justify-center w-4 h-4 rounded-full -top-1 -end-1"
+            ></span>
+          {/if}
+        </div>
       </li>
     {/each}
   </ul>
