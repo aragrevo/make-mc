@@ -1,6 +1,7 @@
 <script>
   import {flip} from 'svelte/animate';
   export let items = [];
+  export let sectionName = '';
 
   function dragStart(ev, item, itemIndex) {
     ev.currentTarget.classList.add('border-dashed');
@@ -13,10 +14,11 @@
   }
 </script>
 
-<article>
+<article class="w-full p-4 text-center border rounded-lg shadow sm:p-8 bg-gray-800 border-gray-700">
+  <h5 class="mb-3 text-2xl font-bold text-white/90">{sectionName}</h5>
   <ul class="flex flex-wrap gap-3">
-    {#each items as item, itemIndex (item)}
-      <div animate:flip class="inline">
+    {#each items.sort() as item, itemIndex (item)}
+      <div animate:flip class="flex-initial">
         <li
           draggable={true}
           on:dragstart={event => dragStart(event, item, itemIndex)}

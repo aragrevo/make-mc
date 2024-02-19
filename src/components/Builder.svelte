@@ -21,6 +21,7 @@
   let itemsAdded = [];
   let {addons, breads, salads, sauces, meats} = $ingredients;
   let fail;
+  let sectionName;
 
   setStep();
 
@@ -28,9 +29,11 @@
     switch ($step) {
       case STEPS.INITIALIZER:
         items = [...breads];
+        sectionName = 'Pao';
         break;
       case STEPS.SEASONING:
         items = [...sauces];
+        sectionName = 'Molho';
         break;
       case STEPS.SALAD:
         if ($burger.salad.length === 0) {
@@ -38,6 +41,7 @@
           return;
         }
         items = [...salads];
+        sectionName = 'Saladas';
         break;
       case STEPS.ADDON:
         if ($burger.addOns.length === 0) {
@@ -45,9 +49,11 @@
           return;
         }
         items = [...addons];
+        sectionName = 'Queijos/Outros';
         break;
       case STEPS.FINISHER:
         items = [...meats];
+        sectionName = 'Carne/Frango';
         break;
       case STEPS.DONE:
         items = [];
@@ -125,5 +131,5 @@
   }
 </script>
 
-<DraggableZone {items} />
+<DraggableZone {items} {sectionName} />
 <DropZone {itemsAdded} handleDrop={drop} {fail} />

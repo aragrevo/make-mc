@@ -62,10 +62,10 @@ export enum ISauces {
   'Ketchup',
   'Mostarda',
   'Maionese',
-  'Molho BigMac',
-  'Molho Tasty',
-  'Molho Bacon',
-  'Molho CBO',
+  'BigMac',
+  'Tasty',
+  'Bacon',
+  'CBO',
 }
 
 export enum ISalad {

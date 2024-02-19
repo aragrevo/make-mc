@@ -4,7 +4,7 @@ export const burgers: IBurger[] = [
   {
     name: 'CBO',
     bread: IBread.TexMex,
-    sauces: [ISauces['Molho CBO']],
+    sauces: [ISauces.CBO],
     salad: [ISalad['Cebola Frita'], ISalad.Alface],
     addOns: [IAddOn.Bacon, IAddOn.Cheddar],
     meat: [IMeat.Myshtic],
@@ -12,7 +12,7 @@ export const burgers: IBurger[] = [
   {
     name: 'Tasty',
     bread: IBread.TexMex,
-    sauces: [ISauces['Molho Tasty']],
+    sauces: [ISauces.Tasty],
     salad: [ISalad['Cebola Fresca'], ISalad.Alface, ISalad.Tomate],
     meat: [IMeat.Royal],
     addOns: [IAddOn.Elemental],
@@ -36,7 +36,7 @@ export const burgers: IBurger[] = [
   {
     name: 'Chicken Bacon',
     bread: IBread.Reg,
-    sauces: [ISauces['Molho Bacon']],
+    sauces: [ISauces.Bacon],
     salad: [],
     addOns: [IAddOn.Bacon],
     meat: [IMeat.Chicken],
@@ -44,7 +44,7 @@ export const burgers: IBurger[] = [
   {
     name: 'BigMac',
     bread: IBread.BigMac,
-    sauces: [ISauces['Molho BigMac']],
+    sauces: [ISauces.BigMac],
     salad: [ISalad.Pepino, ISalad.Alface],
     addOns: [IAddOn.Cheddar],
     meat: [IMeat.Reg],
@@ -60,7 +60,7 @@ export const burgers: IBurger[] = [
   {
     name: 'Royal Bacon',
     bread: IBread.Royal,
-    sauces: [ISauces['Molho Bacon']],
+    sauces: [ISauces.Bacon],
     salad: [],
     addOns: [IAddOn.Cheddar, IAddOn.Bacon],
     meat: [IMeat.Royal],
