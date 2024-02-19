@@ -91,7 +91,20 @@
     updateBurger({...$burger, [property]: [...left]});
   }
 
-  async function drop(value) {
+  async function move(ev) {
+    if (!ev.detail) {
+      return;
+    }
+    resetBox(ev.detail.target);
+    drop(ev.detail.item);
+  }
+
+  function resetBox(target) {
+    target.style.position = 'initial';
+    target.classList.remove('border-dashed');
+  }
+
+  async function drop(value, box) {
     fail = false;
     await tick();
     if ($step === STEPS.INITIALIZER) {
@@ -131,5 +144,5 @@
   }
 </script>
 
-<DraggableZone {items} {sectionName} />
+<DraggableZone {items} {sectionName} on:dropMe={move} />
 <DropZone {itemsAdded} handleDrop={drop} {fail} />

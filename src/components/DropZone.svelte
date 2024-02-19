@@ -38,11 +38,11 @@
   on:drop={event => drop(event)}
   on:dragover={event => dragOver(event)}
   on:dragleave={event => dragLeave(event)}
-  class="dropzone flex flex-col md:flex-row justify-between p-4 border rounded-lg border-gray-600 filter grayscale-0 transition-all"
+  class="dropzone flex flex-col min-h-[27vh] md:flex-row justify-between p-4 border rounded-lg border-gray-600 filter grayscale-0 transition-all"
   class:snake={fail}
 >
-  <div class="flex flex-col min-h-[20vh] items-start w-full">
-    <ul class="flex flex-wrap gap-2 mb-2">
+  <div class="flex flex-col items-start w-full min-h-[25vh]">
+    <ul class="flex flex-wrap gap-2 mb-2 fill">
       {#each itemsAdded as item, itemIndex (item)}
         <div animate:flip class="inline">
           <li
